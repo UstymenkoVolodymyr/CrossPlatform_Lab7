@@ -1,0 +1,53 @@
+<app-labs-header name="Лабораторна робота №2"></app-labs-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <p>
+        Створити додаток для табулювання і виведення на екран значення функції.
+        Вирази для функції f1(x), f2(x) і f3(x) вибрати з таблиці.
+        Також побудувати графік функції; у формі передбачити поля для введення
+        значення параметра а і змінної х, виведення результату обчислення y,
+        а також кнопки для здійснення розрахунку.
+      </p>
+      <ion-item>
+        <ion-input label="Початкове x:" type="number" #InputSX></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Кінцеве x:" type="number" #InputFX></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Крок:" type="number" #InputH></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Число a:" type="number" #InputA></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="Result(InputSX.value, InputFX.value, InputH.value, InputA.value)">Знайти</ion-button>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Табулювання функції</ion-card-title>
+      </ion-card-header>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-center"><strong>Значення x:</strong></ion-col>
+            <ion-col class="ion-text-center"><strong>Значення функції:</strong></ion-col>
+          </ion-row>
+          <ion-row *ngFor="let x of X; let i = index">
+            <ion-col class="ion-text-center">{{x}}</ion-col>
+            <ion-col class="ion-text-center">{{F[i]}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Графік функції</ion-card-title>
+      </ion-card-header>
+      <ion-item>
+        <canvas #lineCanvas></canvas>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Лабораторна робота №2</ion-title>
+  </ion-toolbar>
+</ion-footer>

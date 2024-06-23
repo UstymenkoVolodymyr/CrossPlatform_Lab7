@@ -1,0 +1,45 @@
+<app-labs-header name="Лабораторна робота №4"></app-labs-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <p>
+        Скласти програму з абстрактним батьківським класом і двома
+        класами–нащадками. Реалізувати циклічне виведення параметрів
+        об'єктів, використовуючи поліморфний контейнер - масив об'єктів
+        базового класу (кількість об'єктів >= 5).
+        Організувати обчислення середньої вартості журналів і
+        середньої вартості газет.
+      </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col><i><u>Батьківський клас</u></i></ion-col>
+          <ion-col><i><u>Нащадки</u></i></ion-col>
+          <ion-col><i><u>Методи</u></i></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Печатна продукція (поле: назва)</ion-col>
+          <ion-col>
+            Журнал (поля: тираж, ціна),<br>
+            Газета (поля: кількість сторінок,
+            вартість сторінки, тираж)
+          </ion-col>
+          <ion-col>Вартість тиражу</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-input label="Кількість об'єктів:" type="number" #Input></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="Result(Input.value)">Розрахувати</ion-button>
+      <ion-list>
+        <ion-item *ngFor="let p of pp">{{p.show()}}</ion-item>
+      </ion-list>
+      <ion-item><p>Середня вартість тиражу журналів: {{avm.toFixed(2)}}</p></ion-item>
+      <ion-item><p>Середня вартість тиражу газет: {{avp.toFixed(2)}}</p></ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Лабораторна робота №4</ion-title>
+  </ion-toolbar>
+</ion-footer>

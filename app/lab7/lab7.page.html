@@ -1,0 +1,79 @@
+<app-labs-header name="Лабораторна робота №7"></app-labs-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ul>
+        <li>Завдання по роботі з сервісами:</li>
+        <ol>
+          <li>
+            Розробити сервіс для табулювання функції відповідно до варіанту.
+          </li>
+          <li>
+            Розробити сервіс для розрахунку значень функції
+            за допомогою ряду відповідно до варіанту
+          </li>
+          <li>
+            Розробити сервіс для розрахунку значень функції
+            за допомогою рекурсії відповідно до варіанту
+          </li>
+          <li>
+            Розробити сервіс для логування обчислених значень
+            у консоль та використати його у попередніх трьох сервісах
+          </li>
+          <li>
+            У основному застосунку підключити сервіси, вивести
+            результати усіх розрахунків та побудувати графіки
+            для усіх обрахунків.
+          </li>
+        </ol>
+        <li>
+          Для перевірки роботи розроблених сервісів необхідно
+          використовувати Unit тести. Необхідно протестувати:
+          <ul>
+            <li>проведення розрахунків.</li>
+          </ul>
+        </li>
+      </ul>
+      <ion-grid>
+        <ion-row>
+          <ion-col><i><u>Функція</u></i></ion-col>
+          <ion-col><i><u>Ряд</u></i></ion-col>
+          <ion-col><i><u>Діапазон аргументу</u></i></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>(&Pi;<sup>2</sup> - 3x<sup>2</sup>) / 12</ion-col>
+          <ion-col>&sum; (-1)<sup>i+1</sup> cos(ix) / i<sup>2</sup>, i = 1...∞</ion-col>
+          <ion-col>-&Pi; &lt; x &lt; &Pi;</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-input label="Крок табуляції:" type="number" #Input></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="Result(Input.value)">Розрахувати</ion-button>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Табулювання функції</ion-card-title>
+      </ion-card-header>
+      <ion-item *ngFor="let item of funcTab[0]; let i = index">
+        X: {{item}}<br>
+        Y: {{funcTab[1][i]}} | {{iterTab[1][i]}} | {{recTab[1][i]}}
+      </ion-item>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Графік функції</ion-card-title>
+      </ion-card-header>
+      <ion-item>
+        <canvas #tabCanvas></canvas>
+      </ion-item>
+      <ion-item>
+        <canvas #itCanvas></canvas>
+      </ion-item>
+      <ion-item>
+        <canvas #recCanvas></canvas>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Лабораторна робота №7</ion-title>
+  </ion-toolbar>
+</ion-footer>

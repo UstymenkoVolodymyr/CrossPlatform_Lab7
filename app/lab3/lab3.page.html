@@ -1,0 +1,46 @@
+<app-labs-header name="Лабораторна робота №3"></app-labs-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      Створити Json файл на сервері https://jsonbin.io/.
+      Зчитати інформацію, вивести інформацію у таблицю.
+      <ul>
+        Розклад викладача:
+        <li>Дата.</li>
+        <li>День тижня.</li>
+        <li>Предмет.</li>
+        <li>Група.</li>
+        <li>Аудиторія.</li>
+        Запит. Позначити кольором всі пари викладача із заданою групою (назву
+        групи ввести у формі).
+      </ul>
+      <ion-item>
+        <ion-input label="Введіть групу:" type="text" #InputG></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="load()">Зчитати дані з JSON</ion-button>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-center"><strong>Дата:</strong></ion-col>
+            <ion-col class="ion-text-center"><strong>День:</strong></ion-col>
+            <ion-col class="ion-text-center"><strong>Предмет:</strong></ion-col>
+            <ion-col class="ion-text-center"><strong>Група:</strong></ion-col>
+            <ion-col class="ion-text-center"><strong>Аудиторія:</strong></ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of data_users" [style.backgroundColor]="getColor(InputG.value, item)">
+            <ion-col class="ion-text-center">{{item.date}}</ion-col>
+            <ion-col class="ion-text-center">{{item.day}}</ion-col>
+            <ion-col class="ion-text-center">{{item.subject}}</ion-col>
+            <ion-col class="ion-text-center">{{item.group}}</ion-col>
+            <ion-col class="ion-text-center">{{item.room}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Лабораторна робота №3</ion-title>
+  </ion-toolbar>
+</ion-footer>
